@@ -1,0 +1,112 @@
+﻿<Page
+    x:Class="BlackjackAppVersion3.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:blackjackappversion3="using:BlackjackAppVersion3" d:DataContext="{d:DesignInstance Type=blackjackappversion3:GameController}"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Viewbox>
+            <Grid Background="ForestGreen">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid Name="DealerCard1" Margin="50" Grid.Column="1" Grid.Row="1"
+                      Height="140" Width="100">
+                    <Image Source="{x:Bind Path=gameController_.Dealer.Hand[0].Image, Mode=OneWay}" HorizontalAlignment="Center" Height="180" VerticalAlignment="Top" Width="100" Margin="0,-40,0,0"/>
+                </Grid>
+                <Grid Name="DealerCard2" Margin="50" Grid.Column="2" Grid.Row="1"
+                      Height="140" Width="100">
+                    <Image Source="{x:Bind Path=gameController_.Dealer.Hand[1].Image, Mode=OneWay}" HorizontalAlignment="Center" Height="180" VerticalAlignment="Top" Width="100" Margin="0,-40,0,0"/>
+                </Grid>
+                <Grid Name="DealerCard3" Margin="50" Grid.Column="3" Grid.Row="1"
+                      Height="140" Width="100">
+                    <Image Source="{x:Bind Path=gameController_.Dealer.Hand[2].Image, Mode=OneWay}" HorizontalAlignment="Center" Height="180" VerticalAlignment="Top" Width="100" Margin="0,-40,0,0"/>
+                </Grid>
+                <Grid Name="DealerCard4" Margin="50" Grid.Column="4" Grid.Row="1"
+                      Height="140" Width="100">
+                    <Image Source="{x:Bind Path=gameController_.Dealer.Hand[3].Image, Mode=OneWay}" HorizontalAlignment="Center" Height="180" VerticalAlignment="Top" Width="100" Margin="0,-40,0,0"/>
+                </Grid>
+                <Grid Name="DealerCard5" Margin="50" Grid.Column="5" Grid.Row="1"
+                      Height="140" Width="100">
+                    <Image Source="{x:Bind Path=gameController_.Dealer.Hand[4].Image, Mode=OneWay}" HorizontalAlignment="Center" Height="180" VerticalAlignment="Top" Width="100" Margin="0,-40,0,0"/>
+                </Grid>
+
+                <Grid Name="BtnSpace1" Margin="50" Grid.Column="2" Grid.Row="2">
+                <Button  Click="Hit" Content="Hit"
+                         Grid.Column="2" Grid.Row="2" Margin="50" Height="100" Width="100"/>
+                </Grid>
+                <Grid Name="BtnSpace2" Margin="50" Grid.Column="3" Grid.Row="2">
+                    <Button  Click="New_Game" Content="New Game"
+                         Grid.Column="3" Grid.Row="2" Margin="50" Height="100" Width="100"/>
+                </Grid>
+                <Grid Name="BtnSpace3" Margin="50" Grid.Column="4" Grid.Row="2">
+                    <Button Click="Stick" Content="Stick"
+                        Grid.Column="4" Grid.Row="2" Margin="50" Height="100" Width="100"/>
+                </Grid>
+
+                <TextBlock
+                    
+                    Text="{x:Bind Path=gameController_.Player.Score, Mode=OneWay}" 
+                           Grid.Column="1" Grid.Row="2"
+                           HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock
+                    
+                Text="{x:Bind Path=gameController_.Dealer.Score, Mode=OneWay}" 
+                           Grid.Column="5" Grid.Row="2"
+                           HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+
+                <Grid 
+                    Name="PlayerCard1" Margin="50" Grid.Column="1" Grid.Row="3"
+ Height="140" Width="100" >
+                    <Image Source="{x:Bind Path=gameController_.Player.Hand[0].Image, Mode=OneWay}" HorizontalAlignment="Center" Height="180" VerticalAlignment="Top" Width="100" Margin="0,-40,0,0"/>
+                </Grid>
+
+                <Grid Name="PlayerCard2" Margin="50" Grid.Column="2" Grid.Row="3"
+ Height="140" Width="100" >
+                <Image Source="{x:Bind Path=gameController_.Player.Hand[1].Image, Mode=OneWay}" HorizontalAlignment="Center" Height="180" VerticalAlignment="Top" Width="100" Margin="0,-40,0,0"/>
+            </Grid>
+            <Grid Name="PlayerCard3" Margin="50" Grid.Column="3" Grid.Row="3"
+ Height="140" Width="100" >
+                    <Image Source="{x:Bind Path=gameController_.Player.Hand[2].Image, Mode=OneWay}" HorizontalAlignment="Center" Height="180" VerticalAlignment="Top" Width="100" Margin="0,-40,0,0"/>
+                </Grid>
+                <Grid Name="PlayerCard4" Margin="50" Grid.Column="4" Grid.Row="3"
+ Height="140" Width="100" >
+                    <Image Source="{x:Bind Path=gameController_.Player.Hand[3].Image, Mode=OneWay}" HorizontalAlignment="Center" Height="180" VerticalAlignment="Top" Width="100" Margin="0,-40,0,0"/>
+                </Grid>
+                <Grid Name="PlayerCard5" Margin="50" Grid.Column="5" Grid.Row="3"
+ Height="140" Width="100" >
+                    <Image Source="{x:Bind Path=gameController_.Player.Hand[4].Image, Mode=OneWay}" HorizontalAlignment="Center" Height="180" VerticalAlignment="Top" Width="100" Margin="0,-40,0,0"/>
+                </Grid>
+                
+
+            </Grid>
+
+        </Viewbox>
+        
+
+    </Grid>
+
+</Page>
