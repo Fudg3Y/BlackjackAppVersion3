@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace BlackjackAppVersion3
 {
@@ -63,11 +61,16 @@ namespace BlackjackAppVersion3
                     
                     p.Score += deck[currentCard].GetValue();
 
-                    //deals with aces causing bust
-                    if(p.Score >21 && deck[currentCard].GetValue() == 11)
+                    //deals with changing ace value
+                    if ((p.Score + 10) == 21 &&
+                        ((p.Hand.ElementAtOrDefault(0).GetValue() == 1) ||
+                        (p.Hand.ElementAtOrDefault(1).GetValue() == 1) ||
+                        (p.Hand.ElementAtOrDefault(2).GetValue() == 1) ||
+                        (p.Hand.ElementAtOrDefault(3).GetValue() == 1) ||
+                        (p.Hand.ElementAtOrDefault(4).GetValue() == 1)))
+                        
                     {
-                        p.Score -= 11;
-                        p.Score += 1;
+                        p.Score += 10;
                     }
 
                     p.cardLocation++;
@@ -81,6 +84,31 @@ namespace BlackjackAppVersion3
             else
                 Debug.WriteLine("Deck is out of cards! You shouldn't be here");
             return null;
+        }
+
+        public Card DealSpecificCard(Player p, string f, string s)
+        {
+            Card card_ = new Card(f, s);
+            p.Hand.Insert(p.cardLocation, card_);
+
+            p.Score += card_.GetValue();
+
+            //deals with changing ace value
+            if ((p.Score + 10) == 21 && 
+                ((p.Hand.ElementAtOrDefault(0).GetValue() == 1)||
+                (p.Hand.ElementAtOrDefault(1).GetValue() == 1)||
+                (p.Hand.ElementAtOrDefault(2).GetValue() == 1)||
+                (p.Hand.ElementAtOrDefault(3).GetValue() == 1)||
+                (p.Hand.ElementAtOrDefault(4).GetValue() == 1)))
+                
+            {
+                p.Score += 10;
+            }
+
+            p.cardLocation++;
+            currentCard++;
+
+            return p.Hand.ElementAtOrDefault(p.cardLocation);
         }
 
       

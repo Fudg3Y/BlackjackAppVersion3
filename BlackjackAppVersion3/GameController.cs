@@ -47,6 +47,7 @@ namespace BlackjackAppVersion3
             {
               Deck.DealCard(Player);
             }
+            
             CheckScore();
         }
 
@@ -70,29 +71,32 @@ namespace BlackjackAppVersion3
             string scoreMessage;
             if (Player.Score == 21 && Dealer.Score != 21)
             {
+                stick = true;
                 scoreMessage = "You win with " + Player.Score + "!";
                 Message(scoreMessage, winMessage);
                 return scoreMessage;
             }
             else if (Player.Score > 21)
             {
+                stick = true;
                 scoreMessage = "You've has gone bust with " + Player.Score;
                 Message(scoreMessage, loseMessage);
                 return scoreMessage;
             }
             else if (Player.Score < 22 && Player.hitCount == 3)
             {
+                stick = true;
                 scoreMessage = "5 cards with a score of " + Player.Score;
                 Message(scoreMessage, winMessage);
                 return scoreMessage;
             }
-            else if (Dealer.Score > 21)
+            else if (Dealer.Score > 21 && stick == true)
             {
                 scoreMessage = "Dealer bust with a score of " + Dealer.Score;
                 Message(scoreMessage, winMessage);
                 return scoreMessage;
             }
-            else if (Dealer.Score < 22 && Dealer.hitCount == 3)
+            else if (Dealer.Score < 22 && Dealer.hitCount == 3 && stick == true)
             {
                 scoreMessage = "Dealer wins with 5 cards";
                 Message(scoreMessage, loseMessage);
@@ -110,8 +114,8 @@ namespace BlackjackAppVersion3
                 Message(scoreMessage, winMessage);
                 return scoreMessage;
             }
-            else if (Player.Score == Dealer.Score)
-            {
+            else if (Player.Score == Dealer.Score && stick == true)
+            {   
                 scoreMessage = "You both had " + Player.Score + "!";
                 Message(scoreMessage, drawMessage);
                 return scoreMessage;

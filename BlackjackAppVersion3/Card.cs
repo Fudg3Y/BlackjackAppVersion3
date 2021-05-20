@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 
 namespace BlackjackAppVersion3
@@ -16,7 +11,6 @@ namespace BlackjackAppVersion3
         private string _face;
         private string _suit;
         private int _value;
-        private bool _faceUp;
 
         public string Face
         {
@@ -54,16 +48,7 @@ namespace BlackjackAppVersion3
                 RaisePropertyChanged("image");
             }
 
-        }
-        public bool FaceUp
-        {
-            get { return _faceUp; }
-            set
-            {
-                _faceUp = value;
-                RaisePropertyChanged("faceUp");
-            }
-        }
+        }     
 
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -81,18 +66,9 @@ namespace BlackjackAppVersion3
             Image = GetImage();
         }
 
-        public Card DefaultCard()
-        {
-            Card defaultCard = new Card("0", "0");
-            return defaultCard;
-        }
-
-        public override string ToString()
-        {
-            string cardName = Face + " of " + Suit + " value: " + GetValue() + " image path = " + GetImage();
-            return cardName;
-        }
-
+        /**
+         * Assigns default values to the cards depending on their face
+         */
         public int GetValue()
         {
             int cardValue;
@@ -105,7 +81,7 @@ namespace BlackjackAppVersion3
                     cardValue = 10;
                     break;
                 case "A":
-                    cardValue = 11;
+                    cardValue = 1;
                     break;
                 default:
                     cardValue = Convert.ToInt32(Face);
@@ -114,6 +90,11 @@ namespace BlackjackAppVersion3
             return cardValue;
         }
 
+
+
+        /**
+         * Creates the string for the image path in XAML based on the face and suit of card
+         */
         public string GetImage()
         {
             string cardImage = "Assets/JPEG/"+Face + Suit + ".jpg";

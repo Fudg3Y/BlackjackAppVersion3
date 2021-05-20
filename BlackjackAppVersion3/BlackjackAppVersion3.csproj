@@ -175,6 +175,7 @@
     <Content Include="Assets\JPEG\AD.jpg" />
     <Content Include="Assets\JPEG\AH.jpg" />
     <Content Include="Assets\JPEG\AS.jpg" />
+    <Content Include="Assets\JPEG\background.jpg" />
     <Content Include="Assets\JPEG\back_cards-07.jpg" />
     <Content Include="Assets\JPEG\blue_back.jpg" />
     <Content Include="Assets\JPEG\Gray_back.jpg" />

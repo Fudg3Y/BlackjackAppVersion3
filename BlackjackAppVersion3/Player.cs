@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace BlackjackAppVersion3
 {
     public class Player : INotifyPropertyChanged
     {
-        //private Card[] _hand;
         private int _score;
         private ObservableCollection<Card> _hand;
 
@@ -25,13 +19,6 @@ namespace BlackjackAppVersion3
             }
         }
 
-        //public Card[] hand
-        //{
-        //    get { return _hand; }
-        //    set { _hand = value;
-        //        RaisePropertyChanged("hand");
-        //    }
-        //}
 
         public int Score 
         {
@@ -39,14 +26,16 @@ namespace BlackjackAppVersion3
             set
             {
                 _score = value;
-                RaisePropertyChanged("score");
+                RaisePropertyChanged("Score");
             }
         }
-        public int cardLocation; //for dealing to the correct location in array
-        public string name;
-        public bool dealer;
-        public int hitCount;
+
+        public int cardLocation; //for dealing to the correct location in list
+        public int hitCount;//used for 5 card rule
+
+        //Used to display card back and fill list to prevent binding error
         readonly Card cardDefault = new Card("0", "0");
+        
 
 
 
@@ -55,17 +44,27 @@ namespace BlackjackAppVersion3
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
+
+        /**
+         * Default constructor for player
+         */
         public Player()
         {
             Hand = new ObservableCollection<Card>();
             Init();
         }
 
+        /**
+         * Used to set reset the game state
+         */
         public void ResetPlayer()
         {
             Init();
         }
 
+        /**
+         * Fills the hand with default cards to be replaced later in the program, sets default values
+         */
         public void Init()
         {
             Hand.Insert(0,cardDefault);
@@ -73,28 +72,8 @@ namespace BlackjackAppVersion3
             Hand.Insert(2,cardDefault);
             Hand.Insert(3,cardDefault);
             Hand.Insert(4,cardDefault);
-            //hand = new Card[6];
             Score = 0;
-            cardLocation = 0;
-            name = "";
-            dealer = false;
+            cardLocation = 0; 
         }
-        public void DisplayHand()
-        {
-            for (int i = 0; i < Hand.Count; i++)
-            {
-                Debug.WriteLine(Hand[i]);    
-            }
-        }
-
-
-        public void IsDealer()
-        {
-            dealer = true;
-        }
-
-        
-        
-
     }
 }

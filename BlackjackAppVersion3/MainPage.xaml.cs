@@ -27,6 +27,7 @@ namespace BlackjackAppVersion3
         {
             this.InitializeComponent();        
             this.DataContext =  new GameController();
+            this.BtnSpace3.Visibility = Visibility.Visible;
         }
 
         
@@ -35,16 +36,29 @@ namespace BlackjackAppVersion3
         private void New_Game(object sender, RoutedEventArgs e)
         {
             gameController_.NewGame();
+            
+            this.StickBtn.IsEnabled = true;
+            this.HitBtn.IsEnabled = true;
+            this.NewGameBtn.IsEnabled = false;
         }
 
         private void Stick(object sender, RoutedEventArgs e)
         {
             gameController_.Stick();
+            this.NewGameBtn.IsEnabled = true;
+            this.StickBtn.IsEnabled = false;
+            this.HitBtn.IsEnabled = false;
         }
 
         private void Hit(object sender, RoutedEventArgs e)
         {
             gameController_.Hit();
+            if(gameController_.stick == true)
+            {
+                this.NewGameBtn.IsEnabled = true;
+                this.StickBtn.IsEnabled = false;
+                this.HitBtn.IsEnabled = false;
+            }
         }
 
         
