@@ -41,14 +41,6 @@ namespace BlackjackAppVersion3
             }
         }
 
-        public void DebugDeckDisplay()
-        {
-            for (int i = 0; i < deck.Length; i++)
-            {
-                Debug.WriteLine(deck[i]);
-            }
-        }
-
         //returns one card to the player specified
         public Card DealCard(Player p)
         {

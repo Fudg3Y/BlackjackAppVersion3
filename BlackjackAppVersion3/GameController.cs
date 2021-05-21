@@ -19,6 +19,7 @@ namespace BlackjackAppVersion3
 
         public void NewGame()
         {
+            
             Player.Init();
             Dealer.Init();
             Player.Score = 0;

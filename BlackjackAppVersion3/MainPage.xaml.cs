@@ -28,6 +28,7 @@ namespace BlackjackAppVersion3
             this.InitializeComponent();        
             this.DataContext =  new GameController();
             this.BtnSpace3.Visibility = Visibility.Visible;
+            
         }
 
         
@@ -61,9 +62,20 @@ namespace BlackjackAppVersion3
             }
         }
 
-        
-
-
-
+        private void ChangeCardColour_Click(object sender, RoutedEventArgs e)
+        {
+            if(gameController_.Player.iter != 7)
+            {
+                gameController_.Player.iter++;
+                gameController_.Dealer.iter++;
+            }
+            else
+            {
+                gameController_.Player.iter = 0;
+                gameController_.Dealer.iter = 0;
+            }
+            
+            New_Game(this, new RoutedEventArgs());
+        }
     }
 }

@@ -42,14 +42,17 @@
                       Height="140" Width="100">
                     <Image Source="{x:Bind Path=gameController_.Dealer.Hand[1].Image, Mode=OneWay}" HorizontalAlignment="Center" Height="180" VerticalAlignment="Top" Width="100" Margin="0,-40,0,0"/>
                 </Grid>
+                
                 <Grid Name="DealerCard3" Margin="50" Grid.Column="3" Grid.Row="1"
                       Height="140" Width="100">
                     <Image Source="{x:Bind Path=gameController_.Dealer.Hand[2].Image, Mode=OneWay}" HorizontalAlignment="Center" Height="180" VerticalAlignment="Top" Width="100" Margin="0,-40,0,0"/>
                 </Grid>
+                
                 <Grid Name="DealerCard4" Margin="50" Grid.Column="4" Grid.Row="1"
                       Height="140" Width="100">
                     <Image Source="{x:Bind Path=gameController_.Dealer.Hand[3].Image, Mode=OneWay}" HorizontalAlignment="Center" Height="180" VerticalAlignment="Top" Width="100" Margin="0,-40,0,0"/>
                 </Grid>
+                
                 <Grid Name="DealerCard5" Margin="50" Grid.Column="5" Grid.Row="1"
                       Height="140" Width="100">
                     <Image Source="{x:Bind Path=gameController_.Dealer.Hand[4].Image, Mode=OneWay}" HorizontalAlignment="Center" Height="180" VerticalAlignment="Top" Width="100" Margin="0,-40,0,0"/>
@@ -59,14 +62,18 @@
                     <Button Name="HitBtn" Click="Hit" Content="Hit" IsEnabled="False"
                          Grid.Column="2" Grid.Row="2" Margin="50" Height="100" Width="100"/>
                 </Grid>
+                
                 <Grid Name="BtnSpace2" Margin="50" Grid.Column="3" Grid.Row="2">
                     <Button  Name="NewGameBtn" Click="New_Game" Content="New Game"
                          Grid.Column="3" Grid.Row="2" Margin="50" Height="100" Width="100"/>
                 </Grid>
+                
                 <Grid Name="BtnSpace3" Margin="50" Grid.Column="4" Grid.Row="2">
                     <Button Name="StickBtn" Click="Stick" Content="Stick" IsEnabled="False" 
                         Grid.Column="4" Grid.Row="2" Margin="50" Height="100" Width="100"/>
                 </Grid>
+                
+                
                 <TextBlock
                     Text="Player Score"
                            Grid.Column="1" Grid.Row="2"
@@ -95,14 +102,17 @@
                       Height="140" Width="100" >
                     <Image Source="{x:Bind Path=gameController_.Player.Hand[1].Image, Mode=OneWay}" HorizontalAlignment="Center" Height="180" VerticalAlignment="Top" Width="100" Margin="0,-40,0,0"/>
                 </Grid>
+                
                 <Grid Name="PlayerCard3" Margin="50" Grid.Column="3" Grid.Row="3"
                       Height="140" Width="100" >
                     <Image Source="{x:Bind Path=gameController_.Player.Hand[2].Image, Mode=OneWay}" HorizontalAlignment="Center" Height="180" VerticalAlignment="Top" Width="100" Margin="0,-40,0,0"/>
                 </Grid>
+                
                 <Grid Name="PlayerCard4" Margin="50" Grid.Column="4" Grid.Row="3"
                       Height="140" Width="100" >
                     <Image Source="{x:Bind Path=gameController_.Player.Hand[3].Image, Mode=OneWay}" HorizontalAlignment="Center" Height="180" VerticalAlignment="Top" Width="100" Margin="0,-40,0,0"/>
                 </Grid>
+                
                 <Grid Name="PlayerCard5" Margin="50" Grid.Column="5" Grid.Row="3"
                       Height="140" Width="100" >
                     <Image Source="{x:Bind Path=gameController_.Player.Hand[4].Image, Mode=OneWay}" HorizontalAlignment="Center" Height="180" VerticalAlignment="Top" Width="100" Margin="0,-40,0,0"/>
@@ -112,8 +122,10 @@
             </Grid>
 
         </Viewbox>
+        <CommandBar VerticalAlignment="Bottom">
+            <AppBarButton Icon="Page2" Label="New" Click="ChangeCardColour_Click"/>
+        </CommandBar>
 
-        
     </Grid>
 
 </Page>

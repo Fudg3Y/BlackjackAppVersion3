@@ -134,6 +134,10 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\JPEG\04.jpg" />
+    <Content Include="Assets\JPEG\05.jpg" />
+    <Content Include="Assets\JPEG\06.jpg" />
+    <Content Include="Assets\JPEG\07.jpg" />
     <Content Include="Assets\JPEG\10C.jpg" />
     <Content Include="Assets\JPEG\10D.jpg" />
     <Content Include="Assets\JPEG\10H.jpg" />
@@ -177,9 +181,9 @@
     <Content Include="Assets\JPEG\AS.jpg" />
     <Content Include="Assets\JPEG\background.jpg" />
     <Content Include="Assets\JPEG\back_cards-07.jpg" />
-    <Content Include="Assets\JPEG\blue_back.jpg" />
-    <Content Include="Assets\JPEG\Gray_back.jpg" />
-    <Content Include="Assets\JPEG\Green_back.jpg" />
+    <Content Include="Assets\JPEG\01.jpg" />
+    <Content Include="Assets\JPEG\02.jpg" />
+    <Content Include="Assets\JPEG\03.jpg" />
     <Content Include="Assets\JPEG\honor_clubs.jpg" />
     <Content Include="Assets\JPEG\honor_diamond.jpg" />
     <Content Include="Assets\JPEG\honor_heart-14.jpg" />

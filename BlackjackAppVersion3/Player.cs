@@ -34,10 +34,10 @@ namespace BlackjackAppVersion3
         public int hitCount;//used for 5 card rule
 
         //Used to display card back and fill list to prevent binding error
-        readonly Card cardDefault = new Card("0", "0");
-        
 
-
+        public Card cardDefault;
+        public int iter;
+        string[] cardBacks = { "0", "1", "2", "3", "4", "5", "6", "7" };
 
         public event PropertyChangedEventHandler PropertyChanged;
         protected void RaisePropertyChanged(string name)
@@ -67,13 +67,14 @@ namespace BlackjackAppVersion3
          */
         public void Init()
         {
+            cardDefault = new Card("0", cardBacks[iter]);
             Hand.Insert(0,cardDefault);
             Hand.Insert(1,cardDefault);
             Hand.Insert(2,cardDefault);
             Hand.Insert(3,cardDefault);
             Hand.Insert(4,cardDefault);
             Score = 0;
-            cardLocation = 0; 
+            cardLocation = 0;
         }
     }
 }
