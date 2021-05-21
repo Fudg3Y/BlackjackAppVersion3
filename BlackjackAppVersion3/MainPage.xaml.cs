@@ -1,21 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
-using Windows.UI.Xaml;
+﻿using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
-using System.Collections.ObjectModel;
-using System.Text;
-using System.Threading.Tasks;
-
+using Windows.ApplicationModel.Core;
 
 namespace BlackjackAppVersion3
 {
@@ -31,7 +16,6 @@ namespace BlackjackAppVersion3
             
         }
 
-        
         public GameController gameController_ = new GameController();
         
         private void New_Game(object sender, RoutedEventArgs e)
@@ -64,7 +48,7 @@ namespace BlackjackAppVersion3
 
         private void ChangeCardColour_Click(object sender, RoutedEventArgs e)
         {
-            if(gameController_.Player.iter != 7)
+            if(gameController_.Player.iter != 9)
             {
                 gameController_.Player.iter++;
                 gameController_.Dealer.iter++;
@@ -77,5 +61,16 @@ namespace BlackjackAppVersion3
             
             New_Game(this, new RoutedEventArgs());
         }
+
+        private void Quit_Click(object sender, RoutedEventArgs e)
+        {
+            CoreApplication.Exit();
+        }
+
+        private void CommandBar_Closing(object sender, object e)
+        {
+            CommandBar.IsOpen = true;
+        }
+
     }
 }

@@ -37,7 +37,7 @@ namespace BlackjackAppVersion3
 
         public Card cardDefault;
         public int iter;
-        string[] cardBacks = { "0", "1", "2", "3", "4", "5", "6", "7" };
+        string[] cardBacks = { "0", "1", "2", "3", "4", "5", "6", "7","8","9" };
 
         public event PropertyChangedEventHandler PropertyChanged;
         protected void RaisePropertyChanged(string name)

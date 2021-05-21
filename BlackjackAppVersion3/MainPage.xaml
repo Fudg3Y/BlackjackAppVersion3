@@ -7,10 +7,9 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
-        
+    <Grid Background="ForestGreen">
         <Viewbox>
-            <Grid Background="ForestGreen">
+            <Grid>
 
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
@@ -69,26 +68,26 @@
                 </Grid>
                 
                 <Grid Name="BtnSpace3" Margin="50" Grid.Column="4" Grid.Row="2">
-                    <Button Name="StickBtn" Click="Stick" Content="Stick" IsEnabled="False" 
+                    <Button Name="StickBtn" Click="Stick" Content="Stick" IsEnabled="False"
                         Grid.Column="4" Grid.Row="2" Margin="50" Height="100" Width="100"/>
                 </Grid>
                 
                 
                 <TextBlock
                     Text="Player Score"
-                           Grid.Column="1" Grid.Row="2"
+                           Grid.Column="1" Grid.Row="2" FontWeight="Bold"
                            HorizontalAlignment="Center" VerticalAlignment="Top"/>
                 <TextBlock
                     Text="{x:Bind Path=gameController_.Player.Score, Mode=OneWay}" 
-                           Grid.Column="1" Grid.Row="2"
+                           Grid.Column="1" Grid.Row="2" 
                            HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 <TextBlock
                     Text="Dealer Score"
-                           Grid.Column="5" Grid.Row="2"
+                           Grid.Column="5" Grid.Row="2" FontWeight="Bold"
                            HorizontalAlignment="Center" VerticalAlignment="Top"/>
                 <TextBlock 
                     Text="{x:Bind Path=gameController_.Dealer.Score, Mode=OneWay}" 
-                           Grid.Column="5" Grid.Row="2"
+                           Grid.Column="5" Grid.Row="2" 
                            HorizontalAlignment="Center" VerticalAlignment="Center"/>
 
 
@@ -122,10 +121,12 @@
             </Grid>
 
         </Viewbox>
-        <CommandBar VerticalAlignment="Bottom">
-            <AppBarButton Icon="Page2" Label="New" Click="ChangeCardColour_Click"/>
+        <Grid>
+            <CommandBar x:Name="CommandBar" VerticalAlignment="Bottom" IsSticky="True" IsOpen="True" OverflowButtonVisibility="Collapsed" Closing="CommandBar_Closing">
+            <AppBarButton Icon="Page2" Label="Change Card Colour" Click="ChangeCardColour_Click"/>
+            <AppBarButton Icon="Stop" Label="Quit" Click="Quit_Click"/>
         </CommandBar>
-
+        </Grid>
     </Grid>
 
 </Page>
